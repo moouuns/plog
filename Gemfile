@@ -9,5 +9,6 @@ gem 'data_mapper'
 gem 'dm-sqlite-adapter'
 group :development do
   gem 'pry'
+  gem "better_errors"
 end
 
