@@ -19,3 +19,7 @@ DataMapper.finalize
 
 # automatically create the post table
 Post.auto_upgrade!
+
+get '/about' do
+	erb :about
+end
