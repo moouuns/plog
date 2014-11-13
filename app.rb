@@ -14,7 +14,7 @@ DataMapper::setup(:default, "sqlite3://#{Dir.pwd}/blog.db")
 class Post
   include DataMapper::Resource
   property :id, Serial
-  property :title, String
+  property :title, Text
   property :body, Text
   property :created_at, DateTime
 end
@@ -27,10 +27,20 @@ DataMapper.finalize
 Post.auto_upgrade!
 
 get '/accueil' do
-	@posts = Post.all(:order => [ :id.desc ], :limit => 20)
+	@posts = Post.all(:order => [ :id.desc ], :limit => 15)
 	erb :accueil
 end
 
-post '/formulaire' do
-	erb :formulaire
+#creation post
+
+post '/accueil' do
+@posts = Post.create(
+  :title      => "#{params[:choix]}",
+  :body       => "#{params[:message]}",
+  :created_at => Time.now
+)
+#@post.save
+redirect '/accueil'
 end
+
+

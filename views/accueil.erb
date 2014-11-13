@@ -1,6 +1,6 @@
 <h1> Plog</h1>
 
-<form action="/formulaire" method="post">
+<form action="/accueil" method="post">
 <label for="name">Selectionne ton prenom et tape ton log:</label>
 <br /><br />
   <select name="choix" id="choix">
@@ -8,10 +8,13 @@
       <option value="Remy">Remy</option>
   </select>
 </form>
-<form action="/formulaire" method="post">
+<br />
+<form action="/accueil" method="post">
     <input type="text" name="message" placeholder="message">
     <input type="submit" value="ajout du log">
 </form> 
+
+<!--<%= params[:message] %> -->
 
 <% @posts.each do |post| %>
   <h3><%= post.title %></h3>
